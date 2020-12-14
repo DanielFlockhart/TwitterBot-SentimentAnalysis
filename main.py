@@ -6,10 +6,10 @@ from keras.models import Sequential
 from keras.layers import Dense, Dropout, LSTM
 from keras.utils import np_utils
 from keras.callbacks import ModelCheckpoint
-consumer_key = 'xZOztdk8i9T5Xom0sLoEFv01J'
-consumer_secret = '90MvUy3j09CHzGAy3GLkXKgM33FUIUXsCcEBiICYy5yxQdni1y'
-access_token = '1157382902793015297-LpcUdyke1tnBESZZsBQNcKEnEVNcPa'
-access_token_secret = '6zwt8fTAr0EdxDIKJAkKyaQ5fwv8XVknPrVJTAv7rzWzx'
+consumer_key = ''
+consumer_secret = ''
+access_token = ''
+access_token_secret = ''
 def OAuth():
     try:
         auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
@@ -26,12 +26,12 @@ wiki_wiki = wikipediaapi.Wikipedia(
         extract_format=wikipediaapi.ExtractFormat.WIKI
 )
 
-a_wiki = wiki_wiki.page('Artificial_intelligence')
-n_wiki = wiki_wiki.page('Nuclear_warfare')
-c_wiki = wiki_wiki.page('Computer_program')
-h_wiki = wiki_wiki.page('Humanity_(virtue)')
+a = wiki_wiki.page('Artificial_intelligence')
+n = wiki_wiki.page('Nuclear_warfare')
+c = wiki_wiki.page('Computer_program')
+h = wiki_wiki.page('Humanity_(virtue)')
 
-file = a_wiki.text + " " + n_wiki.text + " " + c_wiki.text + " " + h_wiki.text
+file = " ".join([a,n,c,h])
 
 def tokenize_words(input):
     input = input.lower()
